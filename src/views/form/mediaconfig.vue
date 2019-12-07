@@ -26,8 +26,11 @@
         <el-input v-model="form.targetValue" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
+        <el-button type="primary" @click="onSubmit">Submit</el-button>
         <el-button @click="onCancel">Cancel</el-button>
+      </el-form-item>
+      <el-form-item label="result">
+         <el-input v-model="form.result" />
       </el-form-item>
     </el-form>
   </div>
@@ -35,7 +38,7 @@
 
 <script>
 import { getDetail } from '@/api/mediaconfig'
-import { mediaStore } from '@/api/mediaconfig'
+import { mediaConfig } from '@/api/mediaconfig'
 
 
 export default {
@@ -52,15 +55,17 @@ export default {
     }
   },
   created() {
-    this.fetchData()
+    // this.fetchData()
   },
   methods: {
     onSubmit() {
-      mediaStore(this.form).then(() => {
+      mediaConfig(this.form).then(reponse => {
             this.$message('submit!')
-            this.$router.push({ path: this.redirect || '/mediaconfig' })
-          }).catch(() => {
-            this.$message("Failed")
+            //this.$router.push({ path: this.redirect || '/mediaconfig' })
+            form.result = response.data.msg
+          }).catch((e) => {
+            this.$message("Failed,server err")
+            console.log(e)
           })
     },
     onCancel() {

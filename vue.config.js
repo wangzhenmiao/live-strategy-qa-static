@@ -37,6 +37,13 @@ module.exports = {
       errors: true
     },
     proxy: {
+      ['/div-api/api']: {
+        target: 'http://127.0.0.1:8080/api',
+        changeOrigin: false,
+        pathRewrite: {
+          ['^/dev-api/api']: '/'
+        }
+      },
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
