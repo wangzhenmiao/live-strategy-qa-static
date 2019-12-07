@@ -3,10 +3,12 @@ import { param2Obj } from '../src/utils'
 
 import user from './user'
 import table from './table'
+import mediaconfig from './mediaconfig'
 
 const mocks = [
   ...user,
-  ...table
+  ...table,
+  ...mediaconfig
 ]
 
 // for front mock

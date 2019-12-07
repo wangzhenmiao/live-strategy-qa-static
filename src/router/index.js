@@ -54,7 +54,21 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/media',
+    component: Layout,
+    redirect: '/media/config',
+    name: 'media',
+    meta: { title: 'Media', icon: 'example' },
+    children: [
+      {
+        path: 'config',
+        name: 'Config',
+        component: () => import('@/views/form/mediaconfig'),
+        meta: { title: 'Media', icon: 'table' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
