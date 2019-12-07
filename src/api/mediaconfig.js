@@ -7,3 +7,10 @@ export function getDetail(params) {
     params
   })
 }
+export function mediaStore(data){
+	return request({
+		url:'/mediastore',
+		method:"post",
+		data
+	})
+}

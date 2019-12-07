@@ -10,6 +10,11 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
+const service_real = axios.create({
+  baseURL:process.env.VUE_APP_BASE_API_REAL,
+  timeout: 5000
+})
+
 // request interceptor
 service.interceptors.request.use(
   config => {

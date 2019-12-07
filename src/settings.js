@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: 'WZ MediaConfig',
 
   /**
    * @type {boolean} true | false
