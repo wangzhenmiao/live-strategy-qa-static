@@ -59,14 +59,14 @@ export default {
   },
   methods: {
     onSubmit() {
-      mediaConfig(this.form).then(reponse => {
+      mediaConfig(this.form).then(response => {
             this.$message('submit!')
             //this.$router.push({ path: this.redirect || '/mediaconfig' })
-            form = response.data
-            form.result = response.data.msg
-          }).catch((e) => {
-            this.$message("Failed,server err")
-            console.log(e)
+            this.form = response.data
+            this.form.result = response.msg
+            console.log(response)
+          }).catch(error => {
+            console.log(error)
           })
     },
     onCancel() {
