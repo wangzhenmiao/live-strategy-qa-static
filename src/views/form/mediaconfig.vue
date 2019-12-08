@@ -62,6 +62,7 @@ export default {
       mediaConfig(this.form).then(reponse => {
             this.$message('submit!')
             //this.$router.push({ path: this.redirect || '/mediaconfig' })
+            form = response.data
             form.result = response.data.msg
           }).catch((e) => {
             this.$message("Failed,server err")
@@ -72,11 +73,6 @@ export default {
       this.$message({
         message: 'cancel!',
         type: 'warning'
-      })
-    },
-    fetchData() {
-      getDetail().then(response => {
-        this.form = response.data.detail
       })
     }
   }
